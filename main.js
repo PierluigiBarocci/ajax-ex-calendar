@@ -35,7 +35,6 @@ function month_Generator(date) {
     var total_days = cloning_month.daysInMonth();
     var first_day_digit = cloning_month.isoWeekday();
     checking_first_day(first_day_digit);
-    console.log(first_day_digit);
     for (var i = 1; i <= total_days; i++) {
         var first_day_textual = cloning_month.format('ddd');
         var properties = {
@@ -47,7 +46,9 @@ function month_Generator(date) {
         $('#month_section').append(final);
         $('#current_month').text(textual_month);
         cloning_month.add(1, 'days');
-    }
+    };
+    var total_squares = $('li').length;
+    counting_remaning_items(total_squares);
 };
 
 function date_formatting(num) {
@@ -93,6 +94,13 @@ function checking_valid_month(num_of_month) {
 
 function checking_first_day(day_digit) {
     for (var i = 1; i < day_digit; i++) {
+        $('#month_section').append('<li></li>');
+    }
+}
+
+function counting_remaning_items (digit) {
+    var remainder = digit % 7;
+    for (var i = 0; i < (7 - remainder) && remainder != 0; i++) {
         $('#month_section').append('<li></li>');
     }
 }
