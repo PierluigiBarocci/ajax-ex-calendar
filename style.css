@@ -25,10 +25,11 @@ header button {
     cursor: pointer;
 }
 
-header button.deactivate {
+header button:disabled {
     background-color: grey;
     cursor: default;
     opacity: 0.6;
+    cursor: no-drop;
 }
 #month_section li {
     margin: 5px;
