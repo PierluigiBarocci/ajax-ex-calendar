@@ -33,15 +33,20 @@ function month_Generator(date) {
     checking_valid_month(date.month());
     var textual_month = cloning_month.format('MMMM');
     var total_days = cloning_month.daysInMonth();
+    var first_day_digit = cloning_month.isoWeekday();
+    checking_first_day(first_day_digit);
+    console.log(first_day_digit);
     for (var i = 1; i <= total_days; i++) {
+        var first_day_textual = cloning_month.format('ddd');
         var properties = {
-            day: date_formatting(i),
-            month: textual_month,
+            day: date_formatting(i) + ' ' + first_day_textual,
+            // month: textual_month,
             data_day: cloning_month.format('YYYY-MM-' + date_formatting(i))
         };
         var final = template_function(properties);
         $('#month_section').append(final);
         $('#current_month').text(textual_month);
+        cloning_month.add(1, 'days');
     }
 };
 
@@ -77,17 +82,18 @@ function checking_Holidays(date) {
 };
 
 function checking_valid_month(num_of_month) {
-    // $('#month_prev').removeClass('deactivate');
-    // $('#month_next').removeClass('deactivate');
     $('#month_prev').prop('disabled', false);
     $('#month_next').prop('disabled', false);
     if (num_of_month == 0) {
-        // $('#month_prev').addClass('deactivate');
         $('#month_prev').prop('disabled', true);
     } else if (num_of_month == 11) {
-        // $('#month_next').addClass('deactivate');
         $('#month_next').prop('disabled', true)
     }
 };
 
+function checking_first_day(day_digit) {
+    for (var i = 1; i < day_digit; i++) {
+        $('#month_section').append('<li></li>');
+    }
+}
 })
