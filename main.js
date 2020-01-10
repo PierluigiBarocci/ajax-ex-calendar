@@ -44,9 +44,10 @@ function month_Generator(date) {
         };
         var final = template_function(properties);
         $('#month_section').append(final);
-        $('#current_month').text(textual_month);
         cloning_month.add(1, 'days');
     };
+    textual_month = textual_month.charAt(0).toUpperCase() + textual_month.slice(1).toLowerCase();
+    $('#current_month').text(textual_month);
     var total_squares = $('li').length;
     counting_remaning_items(total_squares);
 };
@@ -73,7 +74,7 @@ function checking_Holidays(date) {
             for (var i = 0; i < array_month.length; i++) {
                 var date_holiday = array_month[i].date;
                 var name_holiday = array_month[i].name;
-                $('#month_section li[data-day="' + date_holiday + '"]').addClass('holiday').append(' - ' + name_holiday);
+                $('#month_section li[data-day="' + date_holiday + '"]').addClass('holiday').append('<span>' + name_holiday + '</span>');
             }
         },
         'error': function(){

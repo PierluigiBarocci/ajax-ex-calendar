@@ -3,26 +3,31 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body {
+    background-color: #D3D3D3;
+}
 header {
-    height: 160px;
+    min-width: 910px;
+    height: 120px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
-header h2 {
-    margin-bottom: 30px;
+header .month_container {
+    width: 210px;
+    text-align: center;
 }
-
+header h2 {
+    font-size: 30px;
+}
 header button {
-    background-color: green;
+    background-color: #4267B2;
     color: black;
     border: 0;
     padding: 6px 18px;
     margin: 10px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 header button:disabled {
@@ -33,18 +38,27 @@ header button:disabled {
 }
 #month_section {
     margin: 0 auto;
-    width: 700px;
+    width: 910px;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
 }
 #month_section li {
-    width: 100px;
+    width: 130px;
     height: 100px;
     border: 1px solid black;
     text-align: center;
+    position: relative;
+    text-align: left;
+    background-color: white;
+}
+#month_section li span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
 }
 #month_section li.holiday {
-    color: red;
+    background-color: rgba(212, 179, 203, 0.6);
     font-weight: bold;
 }

@@ -14,11 +14,12 @@
     </head>
     <body>
         <header>
-            <h2><span id="current_month"></span> 2018</h2>
-            <div class="actions">
-                <button id="month_prev">Precedente</button>
-                <button id="month_next">Successivo</button>
+            <button id="month_prev"><i class="fas fa-chevron-left"></i> Precedente</button>
+            <div class="month_container">
+                <h2><span id="current_month"></span> 2018</h2>
             </div>
+
+            <button id="month_next">Successivo <i class="fas fa-chevron-right"></i></button>
         </header>
         <main>
             <ul id="month_section">
@@ -26,7 +27,7 @@
             </ul>
         </main>
         <script id="day-template" type="text/x-handlebars-template">
-                <li data-day="{{ data_day }}">{{ day }} {{ month }}</li>
+                <li data-day="{{ data_day }}">{{ day }}</li>
         </script>
     </body>
 </html>
